@@ -8,5 +8,13 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=(".env", ".env.prod"))
 
-    # api keys
+    # openai 
+    openai_model: str
     openai_api_key: str
+
+    # Database info
+    mongo_db: str
+    mongo_host: str
+    mongo_port: str
+    mongo_user: str
+    mongo_pass: str

@@ -22,7 +22,7 @@ class SimpleAssignment(Model):
     """A simple assignment.
     
     Usually a set of multiple choice
-    or short form answers."""
+    or short form answers provided on a single piece of paper."""
     name: str
     created: datetime = Field(default_factory=datetime.now)
     problems = list[Problem]
