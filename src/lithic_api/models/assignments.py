@@ -1,7 +1,9 @@
 from datetime import datetime
 from enum import StrEnum
 
-from odmantic import Field, Model
+
+from pydantic import Field, BaseModel
+from odmantic import Model
 
 
 class ProblemType(StrEnum):
@@ -10,19 +12,26 @@ class ProblemType(StrEnum):
     MULTIPLE_CHOICE = "multiple-choice"
     LONG_ANSWER = "long-answer"
 
-class Problem(Model):
-    """A problem in a given assignment that has """
+class Problem(BaseModel):
+    """A problem in a given assignment that may or may not have an answer"""
     question: str
     type: ProblemType
     answer: str = ""
     options: list[str] = Field(default_factory=list)
 
 
-class SimpleAssignment(Model):
+class SimpleAssignment(BaseModel):
     """A simple assignment.
     
     Usually a set of multiple choice
     or short form answers provided on a single piece of paper."""
     name: str
+    problems: list[Problem]
     created: datetime = Field(default_factory=datetime.now)
-    problems = list[Problem]
+
+
+class SimpleAssignmentModel(SimpleAssignment, Model):
+    """DB wrapper for pydantic models"""
+
+
+# 

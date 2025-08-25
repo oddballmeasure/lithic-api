@@ -13,7 +13,7 @@ from lithic_api.config import Settings
 config = Settings() # type: ignore[call-arg]
 
 class FilePurpose(StrEnum):
-    USER_DATA = "user-data"
+    USER_DATA = "user_data"
     VISION = "vision"
     FINE_TUNE = "fine-tune"
     EVALS = "evals"
@@ -68,7 +68,7 @@ class OpenAIClient:
         file_result = self.upload_file(file=file, purpose=purpose)
 
         user_prompt = {'role': "user",
-                       'content': {"type": "input_file", 
-                                   "file_id": file_result.id}}
+                       'content':[ {"type": "input_file", 
+                                   "file_id": file_result.id}] }
 
         return self._get_structured_output(system_prompt=system_prompt, user_prompt=user_prompt, response_model=response_model)
