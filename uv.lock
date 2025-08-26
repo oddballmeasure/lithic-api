@@ -374,6 +374,7 @@ dependencies = [
     { name = "odmantic" },
     { name = "openai" },
     { name = "pydantic-settings" },
+    { name = "python-multipart" },
 ]
 
 [package.dev-dependencies]
@@ -390,6 +391,7 @@ requires-dist = [
     { name = "odmantic", specifier = ">=1.0.2" },
     { name = "openai", specifier = ">=1.101.0" },
     { name = "pydantic-settings", specifier = ">=2.10.1" },
+    { name = "python-multipart", specifier = ">=0.0.20" },
 ]
 
 [package.metadata.requires-dev]
