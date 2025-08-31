@@ -2,8 +2,6 @@
 
 from pathlib import Path
 
-import pytest
-
 from lithic_api.models import SimpleAssignment
 from lithic_api.openai import SIMPLE_ASSIGNMENT_PROMPT, OpenAIClient
 
