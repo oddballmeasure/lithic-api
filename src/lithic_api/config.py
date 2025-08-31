@@ -8,7 +8,8 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=(".env", ".env.prod"))
 
-    # openai 
+    api_prefix: str
+    # openai
     openai_model: str
     openai_api_key: str
 

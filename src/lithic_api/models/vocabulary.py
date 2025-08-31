@@ -1,7 +1,23 @@
 """Simple file for dealing with vocabulary"""
 
+from enum import StrEnum
+
 from odmantic import Model
 from pydantic import BaseModel
+
+
+class PartOfSpeech(StrEnum):
+    """Identifier of what part of speech the word is used for."""
+
+    NOUN = "noun"
+    PRONOUN = "pronoun"
+    NUMERAL = "numeral"
+    VERB = "verb"
+    ADJECTIVE = "adjective"
+    DETERMINER = "determiner"
+    ADVERB = "adverb"
+    PARTICLE = "particle"
+    EXCLAMATION = "exclamation"
 
 
 class Word(BaseModel):
@@ -11,6 +27,7 @@ class Word(BaseModel):
     translation: str
     language: str
     to_language: str
+    part_of_speech: PartOfSpeech
     infinitive: str = ""
 
 

@@ -1,8 +1,12 @@
+"""Models for assignment processing through ChatGPT/OpenAI"""
+
 from datetime import datetime
 from enum import StrEnum
 
 from odmantic import Model
 from pydantic import BaseModel, Field
+
+from .vocabulary import Word
 
 
 class ProblemType(StrEnum):
@@ -20,6 +24,7 @@ class Problem(BaseModel):
     type: ProblemType
     answer: str = ""
     answer_context: str = ""
+    words: list[Word]
     options: list[str] = Field(default_factory=list)
 
 
@@ -34,5 +39,5 @@ class SimpleAssignment(BaseModel):
     created: datetime = Field(default_factory=datetime.now)
 
 
-class SimpleAssignmentModel(SimpleAssignment, Model):
+class SimpleAssignmentDocument(SimpleAssignment, Model):
     """DB wrapper for pydantic models"""

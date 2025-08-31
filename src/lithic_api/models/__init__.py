@@ -1,3 +1,20 @@
-from .assignments import SimpleAssignment, SimpleAssignmentModel
+from .assignments import SimpleAssignment, SimpleAssignmentDocument
+from .transcripts import (
+    AvailableTranscriptLanguage,
+    TranslatedYoutubeVideo,
+    TranslatedYoutubeVideoDocument,
+    VideoTranslationSubmission,
+)
+from .vocabulary import Vocabulary, VocabularySheet, VocabularySheetDocument
 
-__all__ = ["SimpleAssignment", "SimpleAssignmentModel"]
+__all__ = [
+    "SimpleAssignment",
+    "SimpleAssignmentDocument",
+    "VocabularySheet",
+    "VocabularySheetDocument",
+    "TranslatedYoutubeVideo",
+    "TranslatedYoutubeVideoDocument",
+    "AvailableTranscriptLanguage",
+    "Vocabulary",
+    "VideoTranslationSubmission",
+]
